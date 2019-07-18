@@ -1,0 +1,25 @@
+
+
+
+<template name = "login">
+    <view>
+        <modal 
+        wx:if = "{{isLogin}}"
+        title="登录"  
+        cancelText  = "暂不登录"
+        cancelColor = "#333333"
+        confirm = "马上去登陆"
+        confirmColor = "#d81e06"
+        bindcancel = "logincancel"
+        bindconfirm = "autoLogin"
+        >
+            <label class = "label">  
+                <input type="tel" bindinput = "getMobile" placeholder="请输入手机号" value = "{{mobile}}" />
+            </label>
+            <label class = "label codeBlock">
+                <input type="number" bindinput = "getCode" value = "{{code}}" placeholder="请输入验证码" />
+            </label>
+            <button type="warn" size = "mini" bindtap = "sendCode">获取验证码</button>
+        </modal>
+    </view>
+</template>

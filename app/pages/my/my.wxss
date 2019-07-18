@@ -1,0 +1,13 @@
+/* pages/my/my.wxss */
+
+swiper, swiper-item, .m-img{
+    width:100%;
+    height:500rpx;
+}
+.inp{
+    border:2px solid red;
+}
+#myVideo{
+    width:100%;
+    height:400rpx;
+}

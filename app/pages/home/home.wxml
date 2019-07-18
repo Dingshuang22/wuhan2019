@@ -1,0 +1,83 @@
+<!--pages/home/home.wxml-->
+<view>
+  <text>home--home--home</text>
+<view>
+  <text>{{word}} {{msg}}</text>
+</view>
+<view>
+  {{flag?"今天学习小程序":"最近真的很难很疲惫..."}}
+</view>
+<view data-id = "{{id}}">
+  <text>你好啊</text>
+  <view data-word = "{{word}}" bindtap = "countAdd">count=={{count}}</view>
+  <switch bindtap="changeFlag" checked = "{{!flag}}"></switch>
+  <view wx:if = "{{!flag}}">
+    <image src = "{{imgUrl}}" class = "h-img"></image>
+  </view>
+  <view wx:else>wx:if的显示隐藏渲染和不渲染的区别</view>
+</view>
+
+<view>
+  <view wx:for = "{{array}}" wx:key = "index">
+    {{index}}--{{item.msg}}
+  </view>
+</view>
+
+<view hidden = "{{!flag}}">
+  <view wx:for = "{{num}}" wx:for-item="i" wx:key = "index">
+    <view wx:for = "{{num}}" wx:for-item = "j" wx:for-index = "ii" wx:key = "ii">
+      <view wx:if = "{{i<=j}}">
+        {{i}}*{{j}} ={{i*j}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if = "{{isLogin}}">
+  <view>你好:DDS</view>
+</view>
+<view wx:else>你还没有登录...<button type = "primary">登录</button></view>
+
+<view>
+  <button type = "warn" id = "btn" data-msg = "wuhan2019" bindtap = "tapMe">Press Me</button>
+</view>
+
+<view>
+  <input type = "text" placeholder = "请输入内容..." bindinput = "changeInput"></input>
+</view>
+
+<view bindtap = "parent">
+  <view bindtap = "childone">事件不会阻止冒泡...</view>
+  <view catchtap = "childtwo">一定会阻止事件冒泡...</view>
+</view>
+
+<view class = "h-box"></view>
+
+<template name = "users">
+  <view>
+    <view>users-users</view>
+    <view>name -- {{name}}</view>
+    <view>age -- {{age}}</view>
+  </view>
+</template>
+
+<!-- 调用模板 -->
+<template is = "users" data = "{{...users}}"></template>
+
+<import src = "/tpls/like.wxml"/>
+<template is  ="like" data = "{{...like}}"></template>
+
+<import src = "/tpls/actionsheet.wxml"/>
+<template is = "actionsheet" data = "{{...actionData}}"/>
+
+<import src = "/tpls/login.wxml"/>
+<template is = "login" data = "{{...loginData}}"/>
+
+
+
+<button type="warn" bindtap = "openModal">打开 modal</button>
+<button type="warn" bindtap = "openAction">点击拍照,获取相册</button>
+
+<button type="primary" bindtap = "openMyAction">打开自定义的actionsheet</button>
+
+</view>

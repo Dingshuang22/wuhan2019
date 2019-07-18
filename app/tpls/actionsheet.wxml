@@ -1,0 +1,12 @@
+
+
+
+
+<template name = "actionsheet">
+  <action-sheet hidden = "{{hidden}}">
+    <action-sheet-item data-idx = "{{index}}" bindtap = "todoSome" wx:for = "{{items}}" wx:key = "index">
+      {{item}}
+    </action-sheet-item>
+    <action-sheet-cancel bindtap = "actioncancel">取消</action-sheet-cancel>
+  </action-sheet>
+</template>
